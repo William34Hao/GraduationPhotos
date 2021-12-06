@@ -1,13 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
+    <link rel="stylesheet" href="./css/index.css">
 </head>
+
 <body>
-    <h1>Hello</h1>
-    <img src="./gq.JPG" alt="" style="height:100px;width:100px">
+    <!-- 头部框开始 -->
+    <div class="head">
+        <div class="head-search">
+            <div class="search-left">
+                <i>&nbsp;</i>
+                <a href="#" style="margin-left: 3.8rem;"><i>毕业快乐</i></a>
+            </div>
+        </div>
+        <!-- <i>&#xe6cc;</i> -->
+    </div>
+    <!-- 头部框结束 -->
+   
+    <!-- 内容盒子（大盒子）开始 -->
+    <div class="main">
+        <!-- 图片轮播开始结束 -->
+        <div class="banner-box" id="top">
+            <div class="banner-list">
+                <ul>
+                    <li><img src="./img/banner/3.jpg" alt=""></li>
+                    <li><img src="./img/banner/4.jpg" alt=""></li>
+                    <li><img src="./img/banner/1.jpg" alt=""></li>
+                    <li><img src="./img/banner/2.jpg" alt=""></li>
+                    <li><img src="./img/banner/3.jpg" alt=""></li>
+                    <li><img src="./img/banner/4.jpg" alt=""></li>
+                    <li><img src="./img/banner/1.jpg" alt=""></li>
+                    <li><img src="./img/banner/2.jpg" alt=""></li>
+                </ul>
+            </div>
+            <div class="pionter">
+                <span class="pionter-active"></span><span></span><span></span><span></span>
+            </div>
+            <!-- 图片轮播结束 -->
+           
+        </div>
+        <div class="link">
+            <p>获取更多照片请 <a href="https://www.aliyundrive.com/s/dttj25kv4XW">点这里</a> </p>
+            <div class="imgg">        <img src="./img/banner/1.JPG" alt=""></div>
+   
+        </div> 
+        
+        <!-- 商品展示列表开始 -->
+        <div class="list-box">
+            <ul>
+                <!-- <li>
+                    <a href="">
+                        <img src="./img/ms-list/10.jpg" alt="">
+                        <div class="ltitle">
+                            结果染红波特金额就别特别警惕比其他疾病司机封闭分级别附件
+                        </div>
+                        <div class="price">
+                            <span>￥</span>
+                            <span>34</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./img/ms-list/10.jpg" alt="">
+                        <div class="ltitle">
+                            结果染红波特金额就别特别警惕比其他疾病司机封闭分级别附件
+                        </div>
+                        <div class="price">
+                            <span>￥</span>
+                            <span>34</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./img/ms-list/10.jpg" alt="">
+                        <div class="ltitle">
+                            结果染红波特金额就别特别警惕比其他疾病司机封闭分级别附件
+                        </div>
+                        <div class="price">
+                            <span>￥</span>
+                            <span>34</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./img/ms-list/10.jpg" alt="">
+                        <div class="ltitle">
+                            结果染红波特金额就别特别警惕比其他疾病司机封闭分级别附件
+                        </div>
+                        <div class="price">
+                            <span>￥</span>
+                            <span>34</span>
+                        </div>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+        <!-- 商品展示列表结束 -->
+
+    </div>
+    <!-- 内容盒子（大盒子）结束 -->
+       
 </body>
+<script>
+    // 获取滑动事件元素
+    var bannerBox = document.querySelector('.banner-box');
+    // 获取需要移动的元素
+    var bannerList = bannerBox.querySelector('.banner-list>ul');
+    // 获取焦点元素
+    var pionter = bannerBox.querySelectorAll('.pionter>span')
+    // 设置图片盒子的初始位置，rem为单位
+    var bannerListLeft = -26;
+    // 设置一张图片滑动需要的偏移，670/50=13.4
+    var Offset = 13.4;
+    // 焦点下标
+    var i = 0;
+    var boxStart = 0;
+    var boxEnd = 0;
+    // () =>{} 箭头函数
+    // 按下
+    bannerBox.addEventListener('touchstart', (e) => {
+        boxStart = e.changedTouches[0].pageX;
+        boxEnd = 0;
+        clearInterval(timer);
+    });
+    // 滑动
+    bannerBox.addEventListener('touchmove', (e) => {
+        boxEnd = e.changedTouches[0].pageX;
+    });
+    // 松开
+    bannerBox.addEventListener('touchend', () => {
+        timer = setInterval(automatic, 3000);
+        var boxMove = boxEnd - boxStart;
+        if (boxEnd != 0) {
+            if (Math.abs(boxMove) > 50) {//滑动大于50满足条件
+                pionter[i].className = '';
+                if (boxMove < 0) {//左滑
+                    automatic();
+                } else {//右滑
+                    i--;
+                    if (i < 0) {
+                        i = 3
+                    }
+                    bannerListLeft += Offset;
+                }
+                pionter[i].className = 'pionter-active';
+                bannerList.style.transition = '.3s';
+                bannerList.style.transform = `translateX(${bannerListLeft}rem)`;
+                setTimeout(() => {
+                    if (bannerListLeft <= -12.6 && bannerListLeft >= -12.7) {
+                        bannerListLeft = -66.2;
+                        bannerList.style.transition = 'none';
+                        bannerList.style.transform = `translateX(${bannerListLeft}rem)`;
+                    }
+                }, 300)
+            }
+        }
+    });
+
+    var timer = setInterval(automatic, 3000);
+    function automatic() {
+        //左滑
+        pionter[i].className = '';
+        i++;
+        i %= 4;
+        bannerListLeft -= Offset;
+        pionter[i].className = 'pionter-active';
+        bannerList.style.transition = '.3s';
+        bannerList.style.transform = `translateX(${bannerListLeft}rem)`;
+        setTimeout(() => {
+            if (bannerListLeft < -79.6) {
+                bannerListLeft = -26;
+                bannerList.style.transition = 'none';
+            }
+            bannerList.style.transform = `translateX(${bannerListLeft}rem)`;
+        }, 300)
+    }
+</script>
+<script>
+    // 获取滑动事件元素
+    var navBox = document.querySelector('.nav-box');
+    // 获取需要移动的元素
+    var navBanner = navBox.querySelector('ul');
+    // 获取焦点元素
+    var navPointer = navBox.querySelectorAll('.pionter>span')
+    // banner的left值
+    var navLeft = 0;
+    var navOffset = 14.2
+    // 按下
+    var navStart = 0;
+    // 松开
+    var navEnd = 0;
+    navBox.addEventListener('touchstart', (e) => {
+        navStart = e.changedTouches[0].pageX;
+        navEnd = 0;
+        navBanner.style.transition = 'none';
+    });
+    // 滑动
+    navBox.addEventListener('touchmove', (e) => {
+        navEnd = e.changedTouches[0].pageX;
+        var navMove = navEnd - navStart
+        var moveLeft = navLeft;
+        moveLeft += (navMove / 50);
+        navBanner.style.transform = `translateX(${moveLeft}rem)`;
+    });
+    // 松开
+    navBox.addEventListener('touchend', () => {
+        var navMove = navEnd - navStart
+        if (navEnd != 0) {
+            if (Math.abs(navMove) > 50) {//滑动大于50满足条件
+                navBanner.style.transition = '.4s';
+                if (navMove < 0) {//左滑
+                    navPointer[0].className = ''
+                    navBanner.style.transform = `translateX(${-navOffset}rem)`;
+                    navPointer[1].className = 'pionter-active'
+                    navLeft = -navOffset;
+                } else {
+                    navPointer[1].className = ''
+                    navBanner.style.transform = `translateX(${0}rem)`;
+                    navPointer[0].className = 'pionter-active'
+                    navLeft = 0;
+                }
+            }
+        }
+    });
+</script>
+
+
 </html>

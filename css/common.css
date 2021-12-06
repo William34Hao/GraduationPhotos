@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* 因为内边距和边框会撑大容器，加上这句代码后，就会实现内边距与边框不撑大容器 */
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #555;
+}
+li {
+  list-style: none;
+}
+img {
+  display: block;
+}
+input,
+button {
+  border: 0;
+  outline: 0;
+}
+body {
+  background-color: #f7f7f7;
+}
+@font-face {
+  font-family: "iconfont";
+  /* Project id 2846206 */
+  src: url('./fonts/iconfont.woff2?t=1633147090150') format('woff2'), url('./fonts/iconfont.woff?t=1633147090150') format('woff'), url('./fonts/iconfont.ttf?t=1633147090150') format('truetype');
+}
+i {
+  font-family: 'iconfont';
+  font-style: normal;
+}
+/* 在750像素下的尺寸 */
+html {
+  font-size: 50px;
+}
+@media screen and (max-width: 1242px) {
+  html {
+    font-size: 82.8px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  html {
+    font-size: 72px;
+  }
+}
+@media screen and (max-width: 720px) {
+  html {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 42.66666667px;
+  }
+}
+@media screen and (max-width: 540px) {
+  html {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 424px) {
+  html {
+    font-size: 28.26666667px;
+  }
+}
+@media screen and (max-width: 414px) {
+  html {
+    font-size: 27.6px;
+  }
+}
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 26.66666667px;
+  }
+}
+@media screen and (max-width: 384px) {
+  html {
+    font-size: 25.6px;
+  }
+}
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 360px) {
+  html {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 21.33333333px;
+  }
+}

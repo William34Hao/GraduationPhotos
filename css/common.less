@@ -1,0 +1,133 @@
+* {
+	margin: 0;
+	padding: 0;
+	/* 因为内边距和边框会撑大容器，加上这句代码后，就会实现内边距与边框不撑大容器 */
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: #555;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	display: block;
+}
+
+input,
+button {
+	border: 0;
+	outline: 0;
+}
+
+body {
+	background-color: #f7f7f7;
+}
+
+@font-face {
+	font-family: "iconfont";
+	/* Project id 2846206 */
+	src: url('./fonts/iconfont.woff2?t=1633147090150') format('woff2'),
+		url('./fonts/iconfont.woff?t=1633147090150') format('woff'),
+		url('./fonts/iconfont.ttf?t=1633147090150') format('truetype');
+}
+
+i {
+	font-family: 'iconfont';
+	font-style: normal;
+}
+
+//接下要根据不同的屏幕响应不一样的尺寸
+//1、默认是以750这个尺寸作为基准尺寸。
+//2、在设计效果图的时候，一般以375的尺寸为基准设计。设计完成后，会以双倍图或三倍图显示
+//3、我们在预览效果是以375这个屏幕尺寸为准，所以显出尺寸都 乘以2
+//4、在布局之前需要确定1rem的大小，一般情况会将屏幕分成15份、20份、10份、25份，每份的大小就是根元素的字体大小
+//5、在这里我们将屏幕分成15份，在750像素的屏幕下，单份的尺寸是50，所以根元素的字体大小就50
+@df: 15;
+
+/* 在750像素下的尺寸 */
+html {
+	font-size: 750px/@df;
+}
+
+@media screen and (max-width:1242px) {
+	html {
+		font-size: 1242px/@df;
+	}
+}
+
+@media screen and (max-width:1080px) {
+	html {
+		font-size: 1080px/@df;
+	}
+}
+
+@media screen and (max-width:720px) {
+	html {
+		font-size: 720px/@df;
+	}
+}
+
+@media screen and (max-width:640px) {
+	html {
+		font-size: 640px/@df;
+	}
+}
+
+@media screen and (max-width:540px) {
+	html {
+		font-size: 540px/@df;
+	}
+}
+
+@media screen and (max-width:480px) {
+	html {
+		font-size: 480px/@df;
+	}
+}
+
+@media screen and (max-width:424px) {
+	html {
+		font-size: 424px/@df;
+	}
+}
+
+@media screen and (max-width:414px) {
+	html {
+		font-size: 414px/@df;
+	}
+}
+
+@media screen and (max-width:400px) {
+	html {
+		font-size: 400px/@df;
+	}
+}
+
+@media screen and (max-width:384px) {
+	html {
+		font-size: 384px/@df;
+	}
+}
+
+@media screen and (max-width:375px) {
+	html {
+		font-size: 375px/@df;
+	}
+}
+
+@media screen and (max-width:360px) {
+	html {
+		font-size: 360px/@df;
+	}
+}
+
+@media screen and (max-width:320px) {
+	html {
+		font-size: 320px/@df;
+	}
+}

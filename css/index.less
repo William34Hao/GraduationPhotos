@@ -1,0 +1,297 @@
+@import './common';
+
+// 头部固定框开始
+.head {
+    width: 750rem/50;
+    height: 88rem/50;
+    background-color: #4b7fda;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 28rem/50;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+
+    .head-search {
+        flex: 1;
+        height: 60rem/50;
+        background-color: #fff;
+        border-radius: 30rem/50;
+        margin-right: 30rem/50;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .search-left {
+            display: flex;
+            align-items: center;
+
+            i {
+                font-size: 28rem/50;
+                color: #b7b7b7;
+                margin: 0 28rem/50 0 20rem/50;
+            }
+
+            a {
+                color: #757575;
+                font-size: 28rem/50;
+            }
+        }
+
+        .search-right {
+            width: 90rem/50;
+            height: 53rem/50;
+            border-radius: 25rem/50;
+            line-height: 53rem/50;
+            text-align: center;
+            margin-right: 5rem/50;
+            font-size: 28rem/50;
+            background-image: linear-gradient(to right, #3974f6, #86b3ee);
+
+            a {
+                color: #fff;
+            }
+        }
+    }
+
+    i {
+        text-align: center;
+        color: #ffffff;
+        font-size: 42rem/50;
+    }
+}
+
+// 头部固定框结束
+
+// 底部导航开始
+.bottom-nav {
+    width: 750rem/50;
+    height: 100rem/50;
+    position: fixed;
+    bottom: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 -1px 20px 1px #ccc;
+
+    a {
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 24rem/50;
+
+        i {
+            font-size: 36rem/50;
+            font-weight: 600;
+            margin-bottom: 10rem/50;
+        }
+
+        &.home {
+            color: #3974f6;
+        }
+    }
+}
+
+// 底部导航结束
+
+// 回到顶部按钮
+.returnTop {
+    width: 95rem/50;
+    height: 95rem/50;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 95rem/50;
+    position: fixed;
+    right: 40rem/50;
+    bottom: 130rem/50;
+    font-weight: bold;
+    font-size: 34rem/50;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+    display: none;
+}
+
+// 内容大盒子开始
+.main {
+    max-width: 750rem/50;
+
+    .banner-box {
+        width: 100%;
+        height: 340rem/50;
+        position: relative;
+        overflow: hidden;
+        background-image: linear-gradient(#1056d0, #f7f7f7);
+
+        .banner-list {
+            // 8个盒子*650+一个盒子外边距总共20*8
+            position: absolute;
+            left: 0;
+            bottom: 100;
+            z-index: 888;
+            //每移动一次盒子的距离为650+左盒子右外边距10+右盒子左外边距10=20=670
+
+            ul {
+                display: flex;
+                width: 5360rem/50;
+                transform: translateX(-1300rem/50);
+
+                li {
+                    width: 650rem/50;
+                    margin: 0 10rem/50;
+                    border-radius: 20rem/50;
+                    overflow: hidden;
+
+                    img {
+                        width: 650rem/50;
+                    }
+                }
+            }
+        }
+
+        .pionter {
+            width: 100%;
+            position: absolute;
+            bottom: 10rem/50;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+
+            span {
+
+                width: 40rem/50;
+                height: 8rem/50;
+                border-radius: 4rem/50;
+                margin-right: 8rem/50;
+                background-color: rgba(255, 255, 255, 0.5);
+
+                &.pionter-active {
+                    background-color: #3277f3;
+                }
+            }
+        }
+    }
+
+    .pionter {
+        width: 100%;
+        position: absolute;
+        bottom: 10rem/50;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+
+        span {
+
+            width: 40rem/50;
+            height: 20rem/50;
+            border-radius: 4rem/50;
+            margin-right: 8rem/50;
+            background-color: #c6dbe8;
+
+            &.pionter-active {
+                background-color: #3277f3;
+            }
+        }
+    }
+
+    // 导航菜单开始结束
+    .nav-box {
+        width: 710rem/50;
+        margin: 20rem/50 auto;
+        border-radius: 40rem/50;
+        background: linear-gradient(145deg, #ffffff, #f1f3f6);
+        box-shadow: 12rem/50 12rem/50 36rem/50 #c6c7ca, -12rem/50 -12rem/50 36rem/50 #fffff7;
+        overflow: hidden;
+        position: relative;
+
+        ul {
+            display: flex;
+            width: 1420rem/50;
+            height: 180rem/50;
+            justify-content: space-between;
+            align-items: center;
+
+            li {
+                width: 142rem/50;
+                height: 144rem/50;
+                font-size: 28rem/50;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: #666666;
+
+                    img {
+                        width: 85rem/50;
+                        // margin-top: 14rem/50;
+                        margin-bottom: 14rem/50;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    // 导航菜单结束
+
+
+
+    // 商品展示列表开始
+    .list-box {
+        width: 710rem/50;
+        padding-bottom: 100rem/50;
+        margin: 0 auto;
+
+        ul {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            li {
+                width: 345rem/50;
+                height: 520rem/50;
+                margin-bottom: 20rem/50;
+                border-radius: 26rem/50;
+                overflow: hidden;
+                background-color: #ffffff;
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .ltitle {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        color: #333333;
+                        font-size: 32rem/50;
+                        padding: 0 15rem/50;
+                        margin-top: 10rem/50;
+                    }
+
+            
+                }
+            }
+        }
+    }
+
+    // 商品展示列表结束
+}
+
+// 内容大盒子结束
